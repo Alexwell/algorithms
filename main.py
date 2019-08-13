@@ -6,6 +6,7 @@ from algorithms.counter_recursion import counter_recursion
 from algorithms.max_number_recursion import max_number_recursion
 from algorithms.quicksort_recursion import quicksort_recursion
 
+
 def main():
     tmp_arr = generate_array(100, max_rand_coeff=100)
     print(quicksort_recursion(tmp_arr))
