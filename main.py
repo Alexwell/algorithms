@@ -5,11 +5,20 @@ from algorithms.sum_recursion import sum_recursion
 from algorithms.counter_recursion import counter_recursion
 from algorithms.max_number_recursion import max_number_recursion
 from algorithms.quicksort_recursion import quicksort_recursion
-
+from algorithms.queue import search_seller
 
 def main():
-    tmp_arr = generate_array(100, max_rand_coeff=100)
-    print(quicksort_recursion(tmp_arr))
+    graph = {}
+    graph['you'] = ['alice', 'bob', 'claire']
+    graph['bob'] = ['anuj', 'peggy']
+    graph['alice'] = ['peggy']
+    graph['claire'] = ['thom', 'jonny']
+    graph['anuj'] = []
+    graph['peggy'] = []
+    graph['thom'] = []
+    graph['jonny'] = []
+
+    search_seller(**graph)
 
 
 if __name__ == '__main__':
