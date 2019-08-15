@@ -5,23 +5,11 @@ from algorithms.sum_recursion import sum_recursion
 from algorithms.counter_recursion import counter_recursion
 from algorithms.max_number_recursion import max_number_recursion
 from algorithms.quicksort_recursion import quicksort_recursion
-from algorithms.queue import search_seller
+from algorithms.queue_graphs import search_seller
+from algorithms.graph_weight import lowest_cost, best_cost_way
 
 
 def main():
-    # graph = {}
-    # graph['you'] = ['alice', 'bob', 'peggy']
-    # graph['bob'] = ['anuj', 'peggy', 'you']
-    # graph['alice'] = ['peggy', 'claire']
-    # graph['claire'] = ['thom', 'jonny']
-    # graph['anuj'] = []
-    # graph['peggy'] = ['you', 'alice', 'bob']
-    # graph['thom'] = []
-    # graph['jonny'] = []
-    #
-    # search_seller(**graph)
-
-
     graph = {
             'start':
                 {
@@ -32,23 +20,35 @@ def main():
                 {
                 'fin': 1
                 },
-            'b':{
+            'b':
+                {
                 'a': 3,
                 'fin': 5
+                },
+            'fin':
+                {
+
                 }
             }
 
     costs = {
-            'a': 6,
-            'b': 2,
+            'start': 0,
+            'a': float('inf'),
+            'b': float('inf'),
             'fin': float('inf')
             }
 
     parents = {
+            'start': None,
             'a': 'start',
             'b': 'start',
             'fin': None
             }
+
+    a = lowest_cost(graph, costs, parents)
+    print(a)
+    b = best_cost_way(a[0], a[1])
+    print(b)
 
 
 
