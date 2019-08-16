@@ -1,18 +1,15 @@
 processed = []
 
 def lowest_cost(graph):
-    costs = create_costs(graph)
     parents = create_parents(graph)
-    print(costs)
-    print(parents)
     if start_fin_checking(graph):
         return 'wrong graph'
 
+    costs = create_costs(graph)
     if inner_keys_chacking(graph, costs):
         return 'incorrect inner key'
 
     node = find_lowest_cost_node(costs)
-    print(node)
     while node is not None:
         cost = costs[node]
         neighbors = graph[node]

@@ -7,6 +7,7 @@ from algorithms.max_number_recursion import max_number_recursion
 from algorithms.quicksort_recursion import quicksort_recursion
 from algorithms.queue_graphs import search_seller
 from algorithms.graph_weight import lowest_cost, best_cost_way
+from algorithms.WeightGraph import WeightGraph
 
 
 def main():
@@ -15,6 +16,7 @@ def main():
                 {
                 'a': 6,
                 'b': 2,
+
                 },
             'a':
                 {
@@ -68,6 +70,8 @@ def main():
     b = best_cost_way(a[0], a[1])
     print(b)
 
+    obj = WeightGraph(graph2)
+    print(obj.best_way_cost)
 
 if __name__ == '__main__':
     main()
