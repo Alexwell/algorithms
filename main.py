@@ -31,25 +31,42 @@ def main():
                 }
             }
 
-    costs = {
-            'start': 0,
-            'a': float('inf'),
-            'b': float('inf'),
-            'fin': float('inf')
+
+    graph2 = {
+            'start':
+                {
+                'a': 5,
+                'b': 2,
+                },
+            'a':
+                {
+                'c': 4,
+                'd': 2
+                },
+            'b':
+                {
+                'a': 8,
+                'd': 7
+                },
+            'c':
+                {
+                'fin': 3,
+                'd': 6
+                },
+            'd':
+                {
+                'fin':1
+                },
+            'fin':
+                {
+                }
             }
 
-    parents = {
-            'start': None,
-            'a': 'start',
-            'b': 'start',
-            'fin': None
-            }
 
-    a = lowest_cost(graph, costs, parents)
+    a = lowest_cost(graph2)
     print(a)
     b = best_cost_way(a[0], a[1])
     print(b)
-
 
 
 if __name__ == '__main__':

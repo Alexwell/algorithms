@@ -1,21 +1,18 @@
 processed = []
 
-def lowest_cost(graph, costs, parents):
+def lowest_cost(graph):
+    costs = create_costs(graph)
+    parents = create_parents(graph)
+    print(costs)
+    print(parents)
     if start_fin_checking(graph):
         return 'wrong graph'
-    elif start_fin_checking(costs):
-        return 'wrong costs'
-    elif start_fin_checking(parents):
-        return 'wrong parents'
-
-    if keys_chacking(graph, costs, parents):
-        return 'incorrect input'
 
     if inner_keys_chacking(graph, costs):
         return 'incorrect inner key'
 
-
     node = find_lowest_cost_node(costs)
+    print(node)
     while node is not None:
         cost = costs[node]
         neighbors = graph[node]
@@ -60,10 +57,28 @@ def start_fin_checking(dict, start='start', fin='fin'):
         return True
 
 
-def keys_chacking(*args):
-    tmp_keys = args[0].keys()
-    for i in args:
-        if i.keys() != tmp_keys: return True
+def create_costs(dict):
+    costs = {
+        'start': 0,
+        'fin': float('inf'),
+    }
+
+    for i in dict.keys():
+        if i == 'start': continue
+        costs[i] = float('inf')
+    return costs
+
+
+def create_parents(dict):
+    parents = {
+        'start': None,
+        'fin': None,
+    }
+
+    for i in dict['start'].keys():
+        parents[i] = 'start'
+
+    return parents
 
 
 def inner_keys_chacking(main_dict, checker):
