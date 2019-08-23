@@ -8,7 +8,7 @@ from algorithms.quicksort_recursion import quicksort_recursion
 from algorithms.queue_graphs import search_seller
 from algorithms.graph_weight import lowest_cost, best_cost_way
 from algorithms.WeightGraph import WeightGraph
-
+from algorithms.Greed import Greed
 
 def main():
     graph = {
@@ -32,7 +32,6 @@ def main():
 
                 }
             }
-
 
     graph2 = {
             'start':
@@ -65,13 +64,48 @@ def main():
             }
 
 
-    a = lowest_cost(graph2)
-    print(a)
-    b = best_cost_way(a[0], a[1])
-    print(b)
+    # a = lowest_cost(graph2)
+    # print(a)
+    # b = best_cost_way(a[0], a[1])
+    # print(b)
+    #
+    # obj = WeightGraph(graph2)
+    # print(obj.best_way_cost)
 
-    obj = WeightGraph(graph2)
-    print(obj.best_way_cost)
+    states_needed = {'mt', 'wa', 'or', 'id', 'nv', 'ut', 'ca', 'az'}
+
+    stations = {
+        'kone': {
+            'id',
+            'nv',
+            'ut'
+        },
+        'ktwo': {
+            'wa',
+            'id',
+            'mt'
+        },
+        'kthree':{
+            'or',
+            'nv',
+            'ca'
+        },
+        'kfour':{
+            'nv',
+            'ut'
+        },
+        'kfive':{
+            'ca',
+            'az'
+        }
+    }
+
+    a = Greed(states_needed, stations)
+
+    print(a)
+
+    print(a.final_stations)
+
 
 if __name__ == '__main__':
     main()
